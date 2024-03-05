@@ -86,12 +86,17 @@ body * {
   z-index: 1;
   left: 0;
   transform: translateY(-50%);
+
+  animation: slide-return 0.4s forwards; /* forwards vai manter as propriedades da animação para o botão não voltar para o inicio */
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.4s forwards; /* forwards vai manter as propriedades da animação para o botão não voltar para o inicio */
   border: 1px solid black;
+}
+
+#switch button:hover {
+  outline: 7px solid var(--highlight-color)
 }
 
 #switch span {
@@ -180,3 +185,22 @@ footer {
       }
 
 }
+
+/* animation */
+ @keyframes slide-in {
+   from {
+    left: 0;
+   }
+   to {
+    left: 50%;
+   }
+ }
+
+  @keyframes slide-return {
+   from {
+    left: 50%;
+   }
+   to {
+    left: 0%;
+   }
+  }
